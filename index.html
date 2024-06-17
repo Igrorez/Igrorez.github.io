@@ -7,12 +7,53 @@
 </head>
 <body>
     <h1>Hellow!</h1>
+    <video id="myPlayer" src="yourVideoFile.mp4" controls></video>
+    <div class="controls">
+        <div class="playButton">Play</div>
+        <div class="stopButton">Stop</div>
+        <input type="range" id="volControl" min="0" max="1" step="0.1">
+    </div>
+
+    
 </body>
+    <script>
+        var player = document.getElementById('myPlayer');
+        var playButton = document.querySelector('.playButton');
+        var stopButton = document.querySelector('.stopButton');
+        var volControl = document.getElementById('volControl');
+
+        playButton.addEventListener('click', function() {
+            player.play();
+        });
+
+        stopButton.addEventListener('click', function() {
+            player.pause();
+            player.currentTime = 0;
+        });
+
+        volControl.addEventListener('change', function() {
+            player.volume = volControl.value;
+        });
+    </script>
     <style>
         body {
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
+        }
+        #myPlayer {
+            width: 600px;
+            height: 400px;
+            background-color: #000;
+        }
+        .controls {
+            width: 600px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .playButton, .stopButton {
+            cursor: pointer;
         }
     </style>
 </html>
