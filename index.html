@@ -21,6 +21,9 @@
         var playButton = document.querySelector('.playButton');
         var stopButton = document.querySelector('.stopButton');
         var volControl = document.getElementById('volControl');
+        var savedVolume = localStorage.getItem('volume');
+        
+        
         
         playButton.addEventListener('click', function() {
             player.play();
@@ -31,9 +34,13 @@
             player.pause();
             //player.currentTime = 0;
         });
-
+        if(savedVolume) {
+                player.volume = savedVolume;
+                volControl.value = savedVolume;
+        }
         volControl.addEventListener('change', function() {
             player.volume = volControl.value;
+            localStorage.setItem('volume', volControl.value);
         });
     </script>
     <style>
