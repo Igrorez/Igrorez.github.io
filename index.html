@@ -21,7 +21,7 @@
         var playButton = document.querySelector('.playButton');
         var stopButton = document.querySelector('.stopButton');
         var volControl = document.getElementById('volControl');
-
+        var ply = document.getElementById('myPlayer');
         playButton.addEventListener('click', function() {
             player.play();
         });
@@ -29,6 +29,7 @@
         stopButton.addEventListener('click', function() {
             player.pause();
             player.currentTime = 0;
+            ply.src = "";
         });
 
         volControl.addEventListener('change', function() {
