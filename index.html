@@ -21,15 +21,16 @@
         var playButton = document.querySelector('.playButton');
         var stopButton = document.querySelector('.stopButton');
         var volControl = document.getElementById('volControl');
-        var ply = document.getElementById('myPlayer');
+        
         playButton.addEventListener('click', function() {
             player.play();
+            player.src = "https://5.restream.one/1465_2";
         });
 
         stopButton.addEventListener('click', function() {
             player.pause();
             player.currentTime = 0;
-            ply.src = "";
+            player.src = "";
         });
 
         volControl.addEventListener('change', function() {
