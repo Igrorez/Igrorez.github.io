@@ -23,15 +23,13 @@
         var volControl = document.getElementById('volControl');
         
         playButton.addEventListener('click', function() {
-            player.src = "https://5.restream.one/1465_2";
             player.play();
             
         });
 
         stopButton.addEventListener('click', function() {
             player.pause();
-            player.currentTime = 0;
-            player.src = "";
+            //player.currentTime = 0;
         });
 
         volControl.addEventListener('change', function() {
