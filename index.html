@@ -38,7 +38,7 @@
             
     $('.grid button').on('click', function() {
         var audioSrc = $(this).attr('data-src');
-        $('.playButton').classList.toggle('stop');
+        $('.playButton').toggleClass('stop');
         player.src = audioSrc;
         player.play();
     })
