@@ -27,17 +27,8 @@
 
     <audio id="myPlayer" src="https://mds-station.com:8443/mds" controls></audio>
     <div class="controls">
-        <!--<button class="playButton"><span></span></button>
-        <input type="range" id="volControl" class="range-style" min="0" max="1" step="0.1">-->
-        <div class="content">
-            <input type="checkbox" id="play">
-            <label for="play">
-                <div class="letter-p"></div>
-                <div class="letter-l"></div>
-                <div class="letter-a"><span></span></div>
-                <div class="letter-y"></div>
-            </label>
-        </div>
+        <button class="playButton"><span></span></button>
+        <input type="range" id="volControl" class="range-style" min="0" max="1" step="0.1">
     </div>
 </body>
 <script>
@@ -89,81 +80,6 @@
         background-position: center;
         height: 100vh;
     }
-
-    .content {
-	width: 38vmin;
-	height: 15vmin;
-	background: #2b6ea1;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 10vmin;
-	box-shadow: 0 1px 0 1px #0002, 0 1vmin 0 0 #1f5176, 0 1.5vmin 0 0 #1f5176, 0 1.5vmin 0 1px #0004, 0 -1px 0 1px #0002, 0 calc(1.5vmin + 1px) 5px #fff6;
-	transition: all 0.5s ease 0s;
-}
-
-.content:hover {
-	transform: translateY(5px);
-	transition: all 0.5s ease 0s;
-	box-shadow: 
-		0 1px 0 1px #0002, 
-		0 calc(1vmin - 5px) 0 0 #2c4050, 
-		0 calc(1.5vmin - 5px) 0 0 #2c4050, 
-		0 calc(1.5vmin - 5px) 0 1px #0004, 
-		0 -1px 0 1px #0002, 
-		0 calc(1.5vmin - 4px) 5px #fff6;
-}
-
-
-.letter-p {
-	border-left: 1vmin solid var(--clip);
-	height: 6vmin;
-	border-radius: 0.5vmin;
-	/* margin-left: -1vmin; */
-	transition: all 0.5s ease 0s;
-}
-.letter-p:before {
-	content: "";
-	border: 1vmin solid var(--clip);
-	border-color: var(--clip) var(--clip) var(--clip) #fff0;
-	width: 3vmin;
-	height: 2vmin;
-	margin-top: 0vmin;
-	margin-left: -1vmin;
-	position: absolute;
-	border-radius: 10% 50% 50% 0% / 10% 50% 50% 10%;
-}
-
-
-
-.letter-l {
-	border-left: 1vmin solid var(--clip);
-	border-bottom: 1vmin solid var(--clip);
-	height: 4.5vmin;
-	width: 3vmin;
-	margin-top: 0.5vmin;
-	margin-left: 5.5vmin;
-	margin-right: 2.25vmin;
-	border-radius: 0 0 0 0.5vmin;
-	position: relative;
-	transition: all 0.5s ease 0s;
-}
-.letter-l:before, .letter-l:after {
-	content: "";
-	background: var(--clip);
-	width: 1vmin;
-	height: 1vmin;
-	position: absolute;
-	border-radius: 100%;
-	left: -0.95vmin;
-	margin-top: -0.65vmin;
-}
-
-.letter-l:after {
-	left: 2.5vmin;
-	margin-top: 4.45vmin;
-}
-
 
     h1 {
         text-align: center;
