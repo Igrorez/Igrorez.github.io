@@ -9,12 +9,24 @@
 <body>
     <h1>Любимые радиостанции</h1>
     <audio id="myPlayer" src="https://5.restream.one/1465_2" controls></audio>
+    <div class="grid">
+        <div data-src="https://5.restream.one/1465_2">
+            <h3>Модель для сборки</h3>
+        </div>
+        <div data-src="https://5.restream.one/1465_3">
+            <h3>Радио фантастики</h3>
+        </div>
+        <div data-src="https://5.restream.one/1465_4">
+            <h3>Детское радио</h3>
+        </div>
+        <div data-src="https://5.restream.one/1465_5">
+            <h3>Comedy Radio</h3>
+        </div>
+    </div>
     <div class="controls">
         <button class="playButton"><span></span></button>
         <input type="range" id="volControl" class="range-style" min="0" max="1" step="0.1">
     </div>
-
-    
 </body>
     <script>
         $(document).ready(function() {
@@ -40,6 +52,7 @@
     </script>
     <style>
         body {
+            position: relative;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -55,8 +68,16 @@
             height: auto;
             background-color: #000;
         }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
         .controls {
-            width: auto;
+            position: fixed;
+            bottom: 0;
+            max-width: 600px;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
