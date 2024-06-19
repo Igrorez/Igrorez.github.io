@@ -15,10 +15,10 @@
         <button data-src="https://listen6.myradio24.com/55699">
             <h3>Радио фантастики</h3>
         </button>
-        <button data-src="https://5.restream.one/1465_4">
+        <button data-src="https://srv02.gpmradio.ru:8443/stream/air/aac/64/199">
             <h3>Детское радио</h3>
         </button>
-        <button data-src="https://5.restream.one/1465_5">
+        <button data-src="https://srv02.gpmradio.ru:8443/stream/reg/mp3/128/region_comedy_7">
             <h3>Comedy Radio</h3>
         </button>
     </div>
@@ -38,7 +38,7 @@
             
     $('.grid button').on('click', function() {
         var audioSrc = $(this).attr('data-src');
-        $('.playButton').toggleClass('stop');
+        $('.playButton').addClass('stop');
         player.src = audioSrc;
         player.play();
     })
