@@ -83,34 +83,37 @@
         }
         .playButton::before {
             content: '';
-        background-color: #999;
-        position: absolute;
-        width: 75%;
-        height: 10px;
-        left: -3px;
-        transition: all 0.3s ease;
-        transform: rotate(45deg);
-        border-radius: 5px;
+            background-color: #999;
+            position: absolute;
+            width: 75%;
+            height: 10px;
+            left: -3px;
+            transition: all 0.3s ease;
+            transform: rotate(45deg);
+            border-radius: 5px;
         }
         .playButton::before {
             top: 10px;
         }
         .playButton::after {
             content: '';
-        background-color: #999;
-        position: absolute;
-        width: 75%;
-        height: 10px;
-        left: -3px;
-        transition: all 0.3s ease;
-        transform: rotate(-45deg);
-        border-radius: 5px;
+            background-color: #999;
+            position: absolute;
+            width: 75%;
+            height: 10px;
+           left: -3px;
+            transition: all 0.3s ease;
+            transform: rotate(-45deg);
+            border-radius: 5px;
         }
         .playButton::after {
             bottom: 10px;
         }
         .playButton.stop::before {
+            transform: rotate(180deg);
             width: 0;
+            top: 50%;
+            left: 50%;
         }
         .playButton.stop::after {
             width: 100%;
