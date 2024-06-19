@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js?ver=1.0.0"></script>
     <title>FM stations</title>
 </head>
 <body>
@@ -10,38 +11,32 @@
     <audio id="myPlayer" src="https://5.restream.one/1465_2" controls></audio>
     <div class="controls">
         <button class="playButton"><span></span></button>
-        <button class="stopButton">Stop</button>
         <input type="range" id="volControl" class="range-style" min="0" max="1" step="0.1">
     </div>
 
     
 </body>
     <script>
-        var player = document.getElementById('myPlayer');
-        var playButton = document.querySelector('.playButton');
-        var stopButton = document.querySelector('.stopButton');
-        var volControl = document.getElementById('volControl');
-        var savedVolume = localStorage.getItem('volume');
-        
-        
-        
-        playButton.addEventListener('click', function() {
-            player.play();
-            
-        });
+        $(document).ready(function() {
+    var player = $('#myPlayer')[0];
+    var playButton = $('.playButton');
+    var volControl = $('#volControl');
+    var savedVolume = localStorage.getItem('volume') || 0.5;
 
-        stopButton.addEventListener('click', function() {
-            player.pause();
-            player.currentTime = 0;
-        });
-        if(savedVolume) {
-                player.volume = savedVolume;
-                volControl.value = savedVolume;
-        }
-        volControl.addEventListener('change', function() {
-            player.volume = volControl.value;
-            localStorage.setItem('volume', volControl.value);
-        });
+    player.volume = savedVolume;
+    volControl.val(savedVolume);
+
+    playButton.on('click', function() {
+        this.classList.toggle('stop', player.paused);
+        player[player.paused ? 'play' : 'pause']();
+    });
+
+    volControl.on('input', function() {
+        player.volume = this.value;
+        localStorage.setItem('volume', this.value);
+    });
+});
+
     </script>
     <style>
         body {
