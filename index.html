@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js?ver=1.0.0"></script>
     <title>FM stations</title>
 </head>
+
 <body>
     <h1>Любимые радиостанции</h1>
     <div class="grid">
@@ -22,7 +24,7 @@
             <h3>Comedy Radio</h3>
         </button>
     </div>
-    
+
     <audio id="myPlayer" src="" controls></audio>
     <div class="controls">
         <button class="playButton"><span></span></button>
@@ -30,23 +32,23 @@
     </div>
 </body>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         var player = $('#myPlayer')[0];
         var playButton = $('.playButton');
         var volControl = $('#volControl');
         var savedVolume = localStorage.getItem('volume') || 0.5;
-        
-        $('.grid button').on('click', function() {
+
+        $('.grid button').on('click', function () {
             var audioSrc = $(this).attr('data-src');
             playButton.addClass('stop');
             player.src = audioSrc;
             player.play();
         })
-        
+
         player.volume = savedVolume;
         volControl.val(savedVolume);
 
-        playButton.on('click', function() {
+        playButton.on('click', function () {
             var isPaused = player.paused;
             playButton.toggleClass('stop', isPaused);
             if (isPaused) {
@@ -56,7 +58,7 @@
             }
         });
 
-        volControl.on('input', function() {
+        volControl.on('input', function () {
             var volume = $(this).val();
             player.volume = volume;
             localStorage.setItem('volume', volume);
@@ -64,104 +66,119 @@
     });
 </script>
 
-    <style>
-        body {
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-        h1 {
-            text-align: center;
-            color: #999;
-        }
-        #myPlayer {
-            width: auto;
-            height: auto;
-            background-color: #000;
-        }
-        .grid button {
-            width: 100%;
-        }
+<style>
+    body {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: #eee;
-            border-radius: 10px;
-        }
-        .playButton, .stopButton {
-            position: relative;
-            cursor: pointer;
-            padding: 0;
-            border: none;
-            width: 50px;
-            height: 50px;
-        }
-        .playButton span {
-            background-color: #999;
-            position: absolute;
-            width: 100%;
-            height: 10px;
-            left: -20px;
-            top: 20px;
-            transition: all 0.3s ease;
-            transform: rotate(90deg);
-            border-radius: 5px;
-        }
-        .playButton::before {
-            content: '';
-            background-color: #999;
-            position: absolute;
-            width: 75%;
-            height: 10px;
-            left: -3px;
-            transition: all 0.3s ease;
-            transform: rotate(45deg);
-            border-radius: 5px;
-        }
-        .playButton::before {
-            top: 10px;
-        }
-        .playButton::after {
-            content: '';
-            background-color: #999;
-            position: absolute;
-            width: 75%;
-            height: 10px;
-           left: -3px;
-            transition: all 0.3s ease;
-            transform: rotate(-45deg);
-            border-radius: 5px;
-        }
-        .playButton::after {
-            bottom: 10px;
-        }
-        .playButton.stop::after {
-            transform: rotate(180deg);
-            width: 0;
-            top: 50%;
-            left: 50%;
-        }
-        .playButton.stop::before {
-            width: 100%;
-            transform: rotate(90deg);
-            left: 10px;
-            bottom: auto;
-            top: 20px
-        }
-        .playButton.stop span {
-            left: -10px;
-        }
-        @media (min-width: 600px) {
-            .grid {
+    h1 {
+        text-align: center;
+        color: #999;
+    }
+
+    #myPlayer {
+        width: auto;
+        height: auto;
+        background-color: #000;
+    }
+
+    .grid button {
+        width: 100%;
+    }
+
+    .controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background: #eee;
+        border-radius: 10px;
+    }
+
+    .playButton,
+    .stopButton {
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+        border: none;
+        width: 50px;
+        height: 50px;
+    }
+
+    .playButton span {
+        background-color: #999;
+        position: absolute;
+        width: 100%;
+        height: 10px;
+        left: -20px;
+        top: 20px;
+        transition: all 0.3s ease;
+        transform: rotate(90deg);
+        border-radius: 5px;
+    }
+
+    .playButton::before {
+        content: '';
+        background-color: #999;
+        position: absolute;
+        width: 75%;
+        height: 10px;
+        left: -3px;
+        transition: all 0.3s ease;
+        transform: rotate(45deg);
+        border-radius: 5px;
+    }
+
+    .playButton::before {
+        top: 10px;
+    }
+
+    .playButton::after {
+        content: '';
+        background-color: #999;
+        position: absolute;
+        width: 75%;
+        height: 10px;
+        left: -3px;
+        transition: all 0.3s ease;
+        transform: rotate(-45deg);
+        border-radius: 5px;
+    }
+
+    .playButton::after {
+        bottom: 10px;
+    }
+
+    .playButton.stop::after {
+        transform: rotate(180deg);
+        width: 0;
+        top: 50%;
+        left: 50%;
+    }
+
+    .playButton.stop::before {
+        width: 100%;
+        transform: rotate(90deg);
+        left: 10px;
+        bottom: auto;
+        top: 20px
+    }
+
+    .playButton.stop span {
+        left: -10px;
+    }
+
+    @media (min-width: 600px) {
+        .grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 10px;
         }
-        }
-    </style>
+    }
+</style>
+
 </html>
