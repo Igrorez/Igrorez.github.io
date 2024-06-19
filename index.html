@@ -9,7 +9,7 @@
 <body>
     <h1>Любимые радиостанции</h1>
     <div class="grid">
-        <button data-src="https://5.restream.one/1465_2">
+        <button data-src="https://mds-station.com:8443/mds">
             <h3>Модель для сборки</h3>
         </button>
         <button data-src="https://listen6.myradio24.com/55699">
@@ -29,38 +29,43 @@
         <input type="range" id="volControl" class="range-style" min="0" max="1" step="0.1">
     </div>
 </body>
-    <script>
-        $(document).ready(function() {
-    var player = $('#myPlayer')[0];
-    var playButton = $('.playButton');
-    var volControl = $('#volControl');
-    var savedVolume = localStorage.getItem('volume') || 0.5;
-            
-    $('.grid button').on('click', function() {
-        var audioSrc = $(this).attr('data-src');
-        $('.playButton').addClass('stop');
-        player.src = audioSrc;
-        player.play();
-    })
-            
-    player.volume = savedVolume;
-    volControl.val(savedVolume);
+<script>
+    $(document).ready(function() {
+        var player = $('#myPlayer')[0];
+        var playButton = $('.playButton');
+        var volControl = $('#volControl');
+        var savedVolume = localStorage.getItem('volume') || 0.5;
+        
+        $('.grid button').on('click', function() {
+            var audioSrc = $(this).attr('data-src');
+            playButton.addClass('stop');
+            player.src = audioSrc;
+            player.play();
+        })
+        
+        player.volume = savedVolume;
+        volControl.val(savedVolume);
 
-    playButton.on('click', function() {
-        this.classList.toggle('stop', player.paused);
-        player[player.paused ? 'play' : 'pause']();
+        playButton.on('click', function() {
+            var isPaused = player.paused;
+            playButton.toggleClass('stop', isPaused);
+            if (isPaused) {
+                player.play();
+            } else {
+                player.pause();
+            }
+        });
+
+        volControl.on('input', function() {
+            var volume = $(this).val();
+            player.volume = volume;
+            localStorage.setItem('volume', volume);
+        });
     });
+</script>
 
-    volControl.on('input', function() {
-        player.volume = this.value;
-        localStorage.setItem('volume', this.value);
-    });
-});
-
-    </script>
     <style>
         body {
-            position: relative;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -82,10 +87,6 @@
             gap: 10px;
         }
         .controls {
-            position: fixed;
-            bottom: 0;
-            max-width: 600px;
-            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
