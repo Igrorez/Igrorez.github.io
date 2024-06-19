@@ -109,5 +109,14 @@
         .playButton::after {
             bottom: 10px;
         }
+        .playButton.stop::before {
+            width: 0;
+        }
+        .playButton.stop::after {
+            width: 100%;
+            transform: rotate(90deg);
+            left: auto;
+            right: -20px;
+        }
     </style>
 </html>
