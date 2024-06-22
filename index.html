@@ -48,7 +48,9 @@
             var audioSrc = $(this).attr('data-src');
             playButton.addClass('stop');
             player.src = audioSrc;
-            player.play();
+            player.play().catch(function (error) {
+                console.log('Ошибка воспроизведения:', error);
+            });
         })
 
         player.volume = savedVolume;
