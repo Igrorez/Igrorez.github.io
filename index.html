@@ -12,6 +12,7 @@
 <body>
     <h1>Fantasy Radio</h1>
     <div class="logo">
+        <img src="/fr5.jpg" alt="">
     </div>
     <div class="grid">
         <button data-src="https://mds-station.com:8443/mds">
@@ -87,6 +88,12 @@
         height: 100vh;
     }
 
+    .logo img {
+        max-width: 320px;
+        max-height: 320px;
+        object-fit: contain;
+    }
+
     h1 {
         text-align: center;
         color: #fff;
@@ -132,12 +139,14 @@
         background: #fff;
         border-radius: 10px;
     }
+
     .play-circle {
         padding: 7px 6px 3px 6px;
         border-radius: 50%;
         border: 2px solid #999;
-        
+
     }
+
     .playButton {
         position: relative;
         cursor: pointer;
@@ -154,7 +163,7 @@
         width: 100%;
         height: 10px;
         left: -7px;
-        top: 20px;
+        top: 19px;
         transition: all 0.3s ease;
         transform: rotate(90deg);
         border-radius: 5px;
