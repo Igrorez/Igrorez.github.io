@@ -36,7 +36,7 @@
         var player = $('#myPlayer')[0];
         var playButton = $('.playButton');
         var volControl = $('#volControl');
-        var savedVolume = localStorage.getItem('volume') || 0.5;
+        var savedVolume = localStorage.getItem('volume') || 1;
 
         $('.grid button').on('click', function () {
             var audioSrc = $(this).attr('data-src');
