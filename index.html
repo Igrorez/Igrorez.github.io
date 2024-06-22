@@ -46,7 +46,7 @@
         var gridBtn = $('.grid button');
 
         gridBtn.on('click', function () {
-            this.toggleClass ('color');
+            gridBtn.toggleClass ('color');
             var audioSrc = $(this).attr('data-src');
             playButton.addClass('stop');
             player.src = audioSrc;
