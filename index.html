@@ -50,11 +50,13 @@
             $(this).addClass('color');
             var audioSrc = $(this).attr('data-src');
             playButton.addClass('stop');
-            player.src = audioSrc;
-            player.play().catch(function (error) {
-                console.log('Ошибка воспроизведения:', error);
-            });
-        })
+            setTimeout(function () {
+                player.src = audioSrc;
+                player.play().catch(function (error) {
+                    console.log('Ошибка воспроизведения:', error);
+                });
+            }, 1000);
+        });
 
         player.volume = savedVolume;
         volControl.val(savedVolume);
