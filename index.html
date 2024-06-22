@@ -43,8 +43,10 @@
         var playButton = $('.playButton');
         var volControl = $('#volControl');
         var savedVolume = localStorage.getItem('volume') || 1;
+        var gridBtn = $('.grid button');
 
-        $('.grid button').on('click', function () {
+        gridBtn.on('click', function () {
+            this.toggleClass ('color');
             var audioSrc = $(this).attr('data-src');
             playButton.addClass('stop');
             player.src = audioSrc;
