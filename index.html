@@ -82,9 +82,13 @@
         });
         player.addEventListener('error', function () {
         console.log('Ошибка воспроизведения, повторное воспроизведение...');
+        if (player.paused) {
+            player.load();
+        }
         player.play().catch(function (error) {
             console.log('Ошибка повторного воспроизведения:', error);
         });
+    });
     });
     });
 </script>
