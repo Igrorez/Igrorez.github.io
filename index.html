@@ -15,7 +15,7 @@
         <img src="/fr5.jpg" alt="">
     </div>
     <div class="grid">
-        <button data-src="https://mds-station.com:8443/mds">
+        <button data-src="https://5.restream.one/1465_2">
             <h3>Модель для сборки</h3>
         </button>
         <button data-src="https://listen6.myradio24.com/55699">
@@ -29,7 +29,7 @@
         </button>
     </div>
 
-    <audio id="myPlayer" src="https://mds-station.com:8443/mds" controls></audio>
+    <audio id="myPlayer" src="https://5.restream.one/1465_2" controls></audio>
     <div class="controls">
         <div class="play-circle">
             <button class="playButton"><span></span></button>
@@ -75,6 +75,9 @@
             var volume = $(this).val();
             player.volume = volume;
             localStorage.setItem('volume', volume);
+        });
+        player.addEventListener('ended', function () {
+           player.play();
         });
     });
 </script>
